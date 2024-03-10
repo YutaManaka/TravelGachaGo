@@ -60,9 +60,20 @@ import (
 
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
+	router.Static("/templates", "./templates")
 
+	// form表示
 	router.GET("/", func(ctx *gin.Context){
-	  ctx.HTML(200, "index.html", gin.H{})
+	  ctx.HTML(200, "form.html", gin.H{})
+	})
+
+	// レコード作成
+	router.POST("/create", func(ctx *gin.Context) {
+		name := ctx.PostForm("name")
+		db.Create(&Gacha{Name: name, Used: 0})
+		defer db.Close()
+
+		ctx.Redirect(302, "/")
 	})
 
 	router.Run()

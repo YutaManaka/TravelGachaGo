@@ -52,6 +52,13 @@ import (
 	Used int
   }
 
+  // レコード作成
+//   func CreateGacha(name) {
+// 	db := sqlConnect()
+// 	db.Create(&Gacha{Name: name, Used: 0})
+// 	defer db.Close()
+//   }
+
   // ルーティング
   func main() {
 	db := sqlConnect()
@@ -63,17 +70,34 @@ import (
 	router.Static("/templates", "./templates")
 
 	// form表示
-	router.GET("/", func(ctx *gin.Context){
+	router.GET("/", func(ctx *gin.Context) {
 	  ctx.HTML(200, "form.html", gin.H{})
 	})
 
 	// レコード作成
 	router.POST("/create", func(ctx *gin.Context) {
+		// CreateGacha(ctx.PostForm("name"))
 		name := ctx.PostForm("name")
 		db.Create(&Gacha{Name: name, Used: 0})
 		defer db.Close()
 
 		ctx.Redirect(302, "/")
+	})
+
+	// 目的地を取得
+	// TODO: 目的地名の取得ロジックは後程実装
+	router.GET("/destination", func(ctx *gin.Context) {
+		destination_name:= ""
+		if destination_name == "" {
+			ctx.HTML(200, "error.html", gin.H{})
+		} else {
+			ctx.HTML(200, "destination.html", gin.H{"destination": destination_name})
+		}
+	})
+
+	// 再度ガチャ
+	router.GET("/retry", func(ctx *gin.Context) {
+		ctx.HTML(200, "form.html", gin.H{})
 	})
 
 	router.Run()

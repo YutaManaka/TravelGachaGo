@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang=”ja”>
+<head>
+<meta charset=”UTF-8″>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+</head>
+<body>
+    <title>旅行ガチャ</title>
+
+    <div style="text-align: center">
+        <div style="background-color: #04ABD7; height: 64px; line-height: 64px; font-size: 32px; font-weight: bold;color:#FFFFFF;">
+            Go + Gin
+        </div>
+        <div style="font-size: 36px; padding: 36px;">
+            行きたい都市をいれてください!
+        </div>
+        <form
+            action="/create"
+            method="POST">
+            <input
+                name="name"
+                style="width: 40%; height: 64px; font-size: 36px; border-radius: 12px;"/>
+            <div style="padding: 16px;"/>
+            <button
+                type="submit"
+                style="width: 15%; height: 72px; font-size: 36px; border-radius: 12px;">
+                追加
+            </button>
+            <div style="padding: 36px;">
+                <!-- 画像 -->
+                <img
+                    src="templates/images/globe.gif"
+                    style="width: 480px;">
+            </div>
+            <button
+                formaction="/destination"
+                formmethod="GET"
+                type="submit"
+                style="width: 40%; height: 72px; font-size: 36px; border-radius: 24px;">
+                ガチャする！！！
+            </button>
+        </form>
+    </div>
+</body>
+</html>

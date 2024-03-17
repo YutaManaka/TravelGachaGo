@@ -21,6 +21,7 @@ English follows Japanese.
   - GitHub
 
 ## アプリ画面
+![go](https://github.com/YutaManaka/TravelGachaGo/assets/54618797/b65162a4-6d63-4777-9424-867aff0e71a1)
 
 ## 参考サイト
 1. 環境構築
@@ -51,6 +52,7 @@ If you click Gacha button, the app select your destination randomly.
   - GitHub
 
 ## Screenshots
+![go](https://github.com/YutaManaka/TravelGachaGo/assets/54618797/b65162a4-6d63-4777-9424-867aff0e71a1)
 
 ## Reference
 1. Building an environment

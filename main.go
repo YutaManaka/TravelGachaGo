@@ -87,10 +87,24 @@ import (
 	// 目的地を取得
 	// TODO: 目的地名の取得ロジックは後程実装
 	router.GET("/destination", func(ctx *gin.Context) {
-		destination_name:= ""
-		if destination_name == "" {
+		db := sqlConnect()
+		defer db.Close()
+
+		// 未使用のレコードを取得
+		destinations := []Gacha{}
+		db.Where("used = ?", 0).Find(&destinations)
+
+		// ランダムに選択
+
+		// 未使用レコードがない場合、エラーページへ遷移
+		if len(destinations) == 0 {
 			ctx.HTML(200, "error.html", gin.H{})
 		} else {
+			// 利用済に更新
+			// destination_id := destinations[0].ID
+
+			// 都市名を表示
+			destination_name := destinations[0].Name
 			ctx.HTML(200, "destination.html", gin.H{"destination": destination_name})
 		}
 	})

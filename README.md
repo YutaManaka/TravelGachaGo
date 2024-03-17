@@ -9,15 +9,16 @@ English follows Japanese.
 
 ## 使用技術
 - 言語/フレームワーク
-  - 
+  - go(1.22.1)
+  - gin(1.9.1)
 - ライブラリ
-  - 
+  - go-sql-driver/mysql(1.8.0)
+  - gorm(1.9.16)
+  - godotenv(1.5.1)
 - データベース
-  - MySQL
+  - MySQL(8.0.36)
 - 開発環境
-  - 
-- 本番環境
-  - 
+  - Docker
 - バージョン管理
   - GitHub
 
@@ -30,6 +31,7 @@ English follows Japanese.
 2. 実装
     - [レコードの取得](https://gorm.io/ja_JP/docs/query.html)
     - [[Golang]配列(array)のランダムな要素を取得するには？](https://www.choge-blog.com/programming/golangarraygetrandomelement/)
+    - [【Go】.envを使って環境変数を読み込む(godotenv) +osパッケージでenvを触ってみる。](https://zenn.dev/a_ichi1/articles/c9f3870350c5e2)
 3. 素材
     - [地球の画像](https://usagif.com/ja/kaiten-suru-chikyu-no-gif/)
 
@@ -42,13 +44,14 @@ If you click Gacha button, the app select your destination randomly.
 
 ## Dependency
 - Language / Framework
-  - 
-- Library
-  - 
+  - go(1.22.1)
+  - gin(1.9.1)
+- Libraries
+  - go-sql-driver/mysql(1.8.0)
+  - gorm(1.9.16)
+  - godotenv(1.5.1)
 - Development environment
-  - 
-- Production environment
-  - 
+  - Docker(8.0.36)
 - Version management
   - GitHub
 
@@ -60,5 +63,6 @@ If you click Gacha button, the app select your destination randomly.
 2. Development
     - [レコードの取得](https://gorm.io/ja_JP/docs/query.html)
     - [[Golang]配列(array)のランダムな要素を取得するには？](https://www.choge-blog.com/programming/golangarraygetrandomelement/)
+    - [【Go】.envを使って環境変数を読み込む(godotenv) +osパッケージでenvを触ってみる。](https://zenn.dev/a_ichi1/articles/c9f3870350c5e2)
 3. Images
     - [地球の画像](https://usagif.com/ja/kaiten-suru-chikyu-no-gif/)

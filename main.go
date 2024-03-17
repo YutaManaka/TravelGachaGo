@@ -4,21 +4,23 @@ import (
 	"fmt"
   	"time"
 	"math/rand"
+	"os"
 
   	"github.com/gin-gonic/gin"
   	"github.com/jinzhu/gorm"
+	"github.com/joho/godotenv"
   	_ "github.com/go-sql-driver/mysql"
   )
 
-  // TODO: env読み込み
-
   // DB接続
   func sqlConnect() (database *gorm.DB) {
-	DBMS := "mysql"
-	USER := "go_test"
-	PASS := "password"
-	PROTOCOL := "tcp(db:3306)"
-	DBNAME := "go_database"
+	// env読み込み
+	godotenv.Load(".env")
+	DBMS := os.Getenv("DBMS")
+	USER := os.Getenv("USER")
+	PASS := os.Getenv("PASS")
+	PROTOCOL := os.Getenv("PROTOCOL")
+	DBNAME := os.Getenv("DBNAME")
 
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
 
@@ -55,6 +57,7 @@ import (
 
   // ルーティング
   func main() {
+	// マイグレーション
 	db := sqlConnect()
 	db.AutoMigrate(&Gacha{})
 	defer db.Close()

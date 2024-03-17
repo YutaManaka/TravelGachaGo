@@ -26,12 +26,11 @@ English follows Japanese.
 
 ## 参考サイト
 1. 環境構築
-    - 
-2. デプロイ
-    - 
-3. 実装
-    - 
-4. 素材
+    - [Docker × Go × MySQL 環境構築してみた](https://qiita.com/nao-United92/items/01a3b02b41b0c26fb56d#go%E3%81%A8mysql%E3%82%92%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B)
+2. 実装
+    - [レコードの取得](https://gorm.io/ja_JP/docs/query.html)
+    - [[Golang]配列(array)のランダムな要素を取得するには？](https://www.choge-blog.com/programming/golangarraygetrandomelement/)
+3. 素材
     - [地球の画像](https://usagif.com/ja/kaiten-suru-chikyu-no-gif/)
 
 ## About This Application
@@ -57,10 +56,9 @@ If you click Gacha button, the app select your destination randomly.
 
 ## Reference
 1. Building an environment
-    - 
-2. Deployment
-    - 
-3. Development
-    - 
-4. Images
+    - [Docker × Go × MySQL 環境構築してみた](https://qiita.com/nao-United92/items/01a3b02b41b0c26fb56d#go%E3%81%A8mysql%E3%82%92%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B)
+2. Development
+    - [レコードの取得](https://gorm.io/ja_JP/docs/query.html)
+    - [[Golang]配列(array)のランダムな要素を取得するには？](https://www.choge-blog.com/programming/golangarraygetrandomelement/)
+3. Images
     - [地球の画像](https://usagif.com/ja/kaiten-suru-chikyu-no-gif/)

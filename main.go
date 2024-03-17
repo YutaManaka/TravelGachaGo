@@ -53,13 +53,6 @@ import (
 	Used int
   }
 
-  // レコード作成
-//   func CreateGacha(name) {
-// 	db := sqlConnect()
-// 	db.Create(&Gacha{Name: name, Used: 0})
-// 	defer db.Close()
-//   }
-
   // ルーティング
   func main() {
 	db := sqlConnect()
@@ -77,7 +70,9 @@ import (
 
 	// レコード作成
 	router.POST("/create", func(ctx *gin.Context) {
-		// CreateGacha(ctx.PostForm("name"))
+		db := sqlConnect()
+		defer db.Close()
+
 		name := ctx.PostForm("name")
 		db.Create(&Gacha{Name: name, Used: 0})
 		defer db.Close()
@@ -86,7 +81,6 @@ import (
 	})
 
 	// 目的地を取得
-	// TODO: 目的地名の取得ロジックは後程実装
 	router.GET("/destination", func(ctx *gin.Context) {
 		db := sqlConnect()
 		defer db.Close()
@@ -103,7 +97,7 @@ import (
 			index := rand.Intn(len(destinations))
 
 			// 利用済に更新
-			// destination_id := destinations[index].ID
+			db.Model(&Gacha{}).Where("id = ?", destinations[index].ID).Update("used", 1)
 
 			// 都市名を表示
 			ctx.HTML(200, "destination.html", gin.H{"destination": destinations[index].Name})

@@ -5,8 +5,6 @@ English follows Japanese.
 「旅行ガチャ」は次の旅行先を決められるWEBアプリです。  
 入力された候補都市の中から、ランダムに旅行先が選ばれます。
 
-## URL
-
 ## 使用技術
 - 言語/フレームワーク
   - go(1.22.1)
@@ -24,7 +22,6 @@ English follows Japanese.
 
 ## アプリ画面
 
-
 ## 参考サイト
 1. 環境構築
     - [Docker × Go × MySQL 環境構築してみた](https://qiita.com/nao-United92/items/01a3b02b41b0c26fb56d#go%E3%81%A8mysql%E3%82%92%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B)
@@ -39,8 +36,6 @@ English follows Japanese.
 Travel Gacha is a web application that select a destination of your next trip.  
 You can save your destination candidates as possible as you want.  
 If you click Gacha button, the app select your destination randomly.
-
-## URL
 
 ## Dependency
 - Language / Framework

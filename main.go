@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
   	"time"
+	"math/rand"
 
   	"github.com/gin-gonic/gin"
   	"github.com/jinzhu/gorm"
@@ -52,13 +53,6 @@ import (
 	Used int
   }
 
-  // レコード作成
-//   func CreateGacha(name) {
-// 	db := sqlConnect()
-// 	db.Create(&Gacha{Name: name, Used: 0})
-// 	defer db.Close()
-//   }
-
   // ルーティング
   func main() {
 	db := sqlConnect()
@@ -76,7 +70,9 @@ import (
 
 	// レコード作成
 	router.POST("/create", func(ctx *gin.Context) {
-		// CreateGacha(ctx.PostForm("name"))
+		db := sqlConnect()
+		defer db.Close()
+
 		name := ctx.PostForm("name")
 		db.Create(&Gacha{Name: name, Used: 0})
 		defer db.Close()
@@ -85,13 +81,26 @@ import (
 	})
 
 	// 目的地を取得
-	// TODO: 目的地名の取得ロジックは後程実装
 	router.GET("/destination", func(ctx *gin.Context) {
-		destination_name:= ""
-		if destination_name == "" {
+		db := sqlConnect()
+		defer db.Close()
+
+		// 未使用のレコードを取得
+		destinations := []Gacha{}
+		db.Where("used = ?", 0).Find(&destinations)
+
+		// 未使用レコードがない場合、エラーページへ遷移
+		if len(destinations) == 0 {
 			ctx.HTML(200, "error.html", gin.H{})
 		} else {
-			ctx.HTML(200, "destination.html", gin.H{"destination": destination_name})
+			// ランダムに選択
+			index := rand.Intn(len(destinations))
+
+			// 利用済に更新
+			db.Model(&Gacha{}).Where("id = ?", destinations[index].ID).Update("used", 1)
+
+			// 都市名を表示
+			ctx.HTML(200, "destination.html", gin.H{"destination": destinations[index].Name})
 		}
 	})
 
